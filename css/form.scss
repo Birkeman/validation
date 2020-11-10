@@ -1,0 +1,40 @@
+.logo {
+  margin: 64px auto;
+  text-align: center;
+}
+.title {
+  text-align: center;
+  color: white;
+}
+.width {
+  width: 90vw;
+  max-width: 425px;
+  margin: 16px auto;
+  display: block;
+}
+.input-div {
+  border-bottom: 1px solid white;
+}
+.icon {
+  color: white;
+  filter: invert(100%);
+  vertical-align: middle;
+  margin: 8px;
+}
+.input {
+  font-size: 16px;
+  border: none;
+  vertical-align: middle;
+  outline: none;
+  background: transparent;
+  color: white;
+  &::placeholder {
+    color: white;
+  }
+}
+.btn {
+  width: -webkit-fill-available;
+  margin: 8px auto;
+  font-size: 16px;
+  padding: 8px 0px;
+}
