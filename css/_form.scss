@@ -1,23 +1,25 @@
-.logo {
+.logo--big {
   margin: 64px auto;
   text-align: center;
 }
-.title {
+.text-center{
   text-align: center;
   color: white;
 }
-.width {
+.div-width {
   width: 90vw;
   max-width: 425px;
-  margin: 16px auto;
+  margin: 16px auto 0px;
   display: block;
+}
+.validation-width{
+  text-align: center;
 }
 .input-div {
   border-bottom: 1px solid white;
 }
 .icon {
   color: white;
-  filter: invert(100%);
   vertical-align: middle;
   margin: 8px;
 }

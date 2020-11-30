@@ -1,43 +1,29 @@
-import "/css/main.scss";
+import "/css/app.scss";
+import "/node_modules/@fortawesome/fontawesome-free/css/all.css";
 import $ from "jquery";
-import { createProfile } from "./signup";
-import { accessProfile } from "./login";
-import { deleteAccess } from "./logout";
-import { printLogin } from "./print-login";
-import { printSignup } from "./print-signup";
-import { printQuote } from "./print-quote";
-import { getQuote } from "./get-quote";
-let user = $(".js-user").attr("src");
-let pass = $(".js-pass").attr("src");
+import { printLogin } from "./login/print-login";
+import { printSignup } from "./signup/print-signup";
+import { deleteAccess } from "./services/api/auth";
+import { loggingPage } from "./login/login-page";
+import { signupPage } from "./signup/signup-page";
+import { displayQuote } from "./profile/quote-page";
 function locationHashChanged() {
   if (location.hash === "#login") {
-    printLogin(user, pass);
+    printLogin();
   }
   if (location.hash === "#signup") {
-    printSignup(user, pass);
+    printSignup();
+  }
+  if (location.hash === "#profile") {
+    displayQuote();
   }
 }
 
 window.onhashchange = locationHashChanged;
 
 $(document).ready(function () {
-  location.hash = "signup";
-
-  $(document).on("click", ".js-login", function () {
-    let username = $(".js-username").val();
-    let password = $(".js-password").val();
-    accessProfile(username, password);
-    let token = localStorage.getItem("token");
-    getQuote(token, printQuote);
-  });
-
-  $(document).on("click", ".js-signup", function () {
-    let username = $(".js-username").val();
-    let password = $(".js-password").val();
-    createProfile(username, password);
-  });
-
-  $(document).on("click", ".js-logout", function () {
-    deleteAccess();
-  });
+  printSignup();
+  $(document).on("click", ".js-login", loggingPage);
+  $(document).on("click", ".js-signup", signupPage);
+  $(document).on("click", ".js-logout", deleteAccess);
 });
